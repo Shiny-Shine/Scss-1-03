@@ -1,6 +1,24 @@
-@mixin button-size($index, $wid:200px, $hei:100px)
+@use 'variables' as vars;
+
+@mixin default()
 {
-    width: calc($wid + 50px * $index);
-    height: calc($hei + 30px * $index);
-    margin: 10px 0;
+    margin: 0;
+    padding: 0;
+    background-color: vars.$bgc;
+    color: vars.$fontcolor;
+    font-family: vars.$ffamily;
+    text-decoration: vars.$tdecor;
+    box-sizing: border-box;
+}
+
+@mixin center-block()
+{
+    width: vars.$widthContent;
+    margin: 0 auto;
+}
+
+@mixin text-deco($color: gray)
+{
+    text-decoration: none;
+    color: $color;
 }

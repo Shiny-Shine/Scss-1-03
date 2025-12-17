@@ -1,19 +1,28 @@
 @use 'sass:list';
 @use 'lib' as lib;
 
-$clrs: pink, orange, blue;
-
-@for $i from 1 through 3 {
-    .#{list.nth(lib.$btn-cls, $i)} {
-        background-color: list.nth($clrs, $i);
-        border-radius: lib.btn-get-border-size($i);
-
-        @include lib.button-size($i);
-    }
+* {
+    @include lib.default();
 }
 
-// div {
-//     width: 200px;
-//     height: 100px;
-//     margin: 10px 0;
-// }
+header {
+    width: 100%;
+
+    .inner {
+        @include lib.center-block();
+        position: relative;
+        height: 120px;
+        font-size: 0;
+
+        h1 {
+            position: absolute;
+            left: 10px;
+            bottom: 15px;
+            font-size: 26px;
+
+            a {
+                @include lib.text-deco(black);
+            }
+        }
+    }
+}
