@@ -26,3 +26,26 @@ header {
         }
     }
 }
+
+#navbar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    li {
+        @include lib.list-default();
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    a {
+    display: block;
+    padding: 20px 40px;
+    @include lib.text-deco(gray);
+    
+    &:hover {
+      color: white;
+      background-color: gray;
+    }
+  }
+}

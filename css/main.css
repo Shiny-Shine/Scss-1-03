@@ -27,4 +27,26 @@ header .inner h1 {
 header .inner h1 a {
   text-decoration: none;
   color: black;
+}
+
+#navbar {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+#navbar li {
+  list-style: none;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 15px;
+}
+#navbar a {
+  display: block;
+  padding: 20px 40px;
+  text-decoration: none;
+  color: gray;
+}
+#navbar a:hover {
+  color: white;
+  background-color: gray;
 }/*# sourceMappingURL=main.css.map */

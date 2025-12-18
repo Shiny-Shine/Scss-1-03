@@ -22,3 +22,9 @@
     text-decoration: none;
     color: $color;
 }
+
+@mixin list-default()
+{
+    list-style: none;
+    display: inline-block;
+}
