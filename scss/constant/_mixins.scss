@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-@mixin center-block()
+@mixin center-block($width: vars.$widthContent)
 {
     width: vars.$widthContent;
     margin: 0 auto;
