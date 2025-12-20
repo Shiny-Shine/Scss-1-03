@@ -49,4 +49,39 @@ header .inner h1 a {
 #navbar a:hover {
   color: white;
   background-color: gray;
+}
+
+#utility {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+#utility li {
+  list-style: none;
+  display: inline-block;
+}
+#utility a {
+  display: block;
+  padding: 0 10px;
+  font-size: 12px;
+  text-decoration: none;
+  color: gray;
+}
+
+.main {
+  width: 100%;
+  height: 590px;
+  background-image: url(img/bg_main.png);
+}
+.main div {
+  width: 800px;
+  height: 300px;
+  font-size: 25px;
+  color: white;
+  margin: 0 auto;
+  padding-top: 150px;
+}
+.main span {
+  font-size: 80px;
+  font-weight: bold;
 }/*# sourceMappingURL=main.css.map */
