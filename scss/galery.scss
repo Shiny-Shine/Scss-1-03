@@ -1,0 +1,195 @@
+@use 'sass:list';
+@use 'lib' as lib;
+
+* {
+    @include lib.default();
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    border-bottom: 1px solid black;
+    z-index: 10;
+
+    .inner {
+        @include lib.center-block();
+        position: relative;
+        height: 120px;
+        font-size: 0;
+
+        h1 {
+            position: absolute;
+            left: 10px;
+            bottom: 15px;
+            font-size: 26px;
+
+            a {
+                @include lib.text-deco(black);
+            }
+        }
+    }
+}
+
+#navbar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    li {
+        @include lib.list-default();
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    a {
+    display: block;
+    padding: 20px 40px;
+    @include lib.text-deco(gray);
+    
+    &:hover {
+      color: white;
+      background-color: gray;
+    }
+  }
+}
+
+#utility {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+
+    li {
+        @include lib.list-default();
+    }
+
+    a {
+        display: block;
+        padding: 0 10px;
+        font-size: 12px;
+        @include lib.text-deco(gray);
+    }
+}
+
+section {
+    @include lib.center-block(lib.$widthFooter);
+    padding-top: 120px;
+
+    article {
+        float: left;
+        position: relative;
+
+        p {
+            position: absolute;
+            color: white;
+            font-weight: bold;
+        }
+    }
+
+    .article1 {
+        width: 700px;
+        height: 400px;
+        margin: 10px 10px 10px 0;
+        background-image: url(../img/700x400.png);
+
+        p {
+            right: 10px;
+            bottom: 10px;
+            font-size: 30px;
+        }
+    }
+
+    .article2 {
+        width: 290px;
+        height: 190px;
+        margin-top: 10px;
+        background-image: url(../img/290x190.png);
+
+        p {
+            top: 50px;
+            left: 10px;
+            font-size: 21px;
+        }
+    }
+
+    .article3 {
+        width: 290px;
+        height: 95px;
+        margin-top: 10px;
+
+        p {
+            right: 10px;
+            bottom: 20px;
+            font-size: 21px;
+        }
+    }
+
+    #article4 {
+        width: 490px;
+        margin-right: 10px;
+        
+        .article4 { 
+            width: 490px;
+            height: 240px;
+            margin-bottom: 10px;
+        }
+    }
+
+    #article4-1 {
+        @include lib.abs-center();
+        width: 300px;
+        top: 160px;
+        font-size: 14px;
+        color: black;
+    }
+
+    #article4-2 {
+        right: 20px;
+        bottom: 30px;
+        font-size: 30px;
+        color: gold;
+    }
+
+    .article5 {
+        width: 500px;
+        height: 490px;
+        background-image: url(../img/500x490.png);
+        margin-bottom: 10px;
+    }
+
+    .article6 {
+        width: 1000px;
+        height: 371px;
+        background-image: url(../img/1000x371.png);
+        margin-bottom: 10px;
+
+        p {
+            @include lib.abs-center();
+            font-size: 50px;
+            white-space: nowrap;
+            text-shadow: 2px 2px 2px black;
+        }
+    }
+
+    .article7 {
+        width: 1000px;
+        height: 361px;
+        background-image: url(../img/1000x361.png);
+        margin-bottom: 10px;
+
+        p {
+            font-weight: normal;
+            width: 450px;
+            height: 150px;
+            right: 30px;
+            bottom: 40px;
+            font-size: 20px;
+
+            span {
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+

@@ -4,8 +4,6 @@
 {
     margin: 0;
     padding: 0;
-    background-color: vars.$bgc;
-    color: vars.$fontcolor;
     font-family: vars.$ffamily;
     text-decoration: vars.$tdecor;
     box-sizing: border-box;
@@ -13,7 +11,7 @@
 
 @mixin center-block($width: vars.$widthContent)
 {
-    width: vars.$widthContent;
+    width: $width;
     margin: 0 auto;
 }
 
@@ -27,4 +25,11 @@
 {
     list-style: none;
     display: inline-block;
+}
+
+@mixin abs-center()
+{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
