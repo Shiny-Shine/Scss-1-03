@@ -1,5 +1,16 @@
 @use 'sass:list';
 @use 'lib' as lib;
+@use 'sass:map';
+
+$gallery-data: (
+    'article1': (w: 700px, h: 400px, bg: '700x400.png', color: #fff),
+    'article2': (w: 290px, h: 190px, bg: '290x190.png', color: #fff),
+    'article3': (w: 290px, h: 95px, bg: null, color: #000),
+    'article4': (w: 490px, h: 240px, bg: '290x95-2.png', color: #fff),
+    'article5': (w: 500px, h: 490px, bg: '500x490.png', color: null),
+    'article6': (w: 1000px, h: 371px, bg: '1000x371.png', color: #fff),
+    'article7': (w: 1000px, h: 361px, bg: '1000x361.png', color: #000)
+);
 
 * {
     @include lib.default();
@@ -71,125 +82,159 @@ header {
     }
 }
 
-section {
-    @include lib.center-block(lib.$widthFooter);
-    padding-top: 120px;
+.gallery-grid {
+    @include lib.center-block(1000px);
+    padding-top: 150px;
 
-    article {
-        float: left;
-        position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: flex-start;
 
-        p {
-            position: absolute;
-            color: white;
-            font-weight: bold;
-        }
-    }
+    @each $id, $info in $gallery-data {
+        .article#{$id} {
+            $bg-image: map.get($info, bg);
+            $font-color: map.get($info, color);
 
-    .article1 {
-        width: 700px;
-        height: 400px;
-        margin: 10px 10px 10px 0;
-        background-image: url(../img/700x400.png);
-
-        p {
-            right: 10px;
-            bottom: 10px;
-            font-size: 30px;
-        }
-    }
-
-    .article2 {
-        width: 290px;
-        height: 190px;
-        margin-top: 10px;
-        background-image: url(../img/290x190.png);
-
-        p {
-            top: 50px;
-            left: 10px;
-            font-size: 21px;
-        }
-    }
-
-    .article3 {
-        width: 290px;
-        height: 95px;
-        margin-top: 10px;
-
-        p {
-            right: 10px;
-            bottom: 20px;
-            font-size: 21px;
-        }
-    }
-
-    #article4 {
-        width: 490px;
-        margin-right: 10px;
-        
-        .article4 { 
-            width: 490px;
-            height: 240px;
-            margin-bottom: 10px;
-        }
-    }
-
-    #article4-1 {
-        @include lib.abs-center();
-        width: 300px;
-        top: 160px;
-        font-size: 14px;
-        color: black;
-    }
-
-    #article4-2 {
-        right: 20px;
-        bottom: 30px;
-        font-size: 30px;
-        color: gold;
-    }
-
-    .article5 {
-        width: 500px;
-        height: 490px;
-        background-image: url(../img/500x490.png);
-        margin-bottom: 10px;
-    }
-
-    .article6 {
-        width: 1000px;
-        height: 371px;
-        background-image: url(../img/1000x371.png);
-        margin-bottom: 10px;
-
-        p {
-            @include lib.abs-center();
-            font-size: 50px;
-            white-space: nowrap;
-            text-shadow: 2px 2px 2px black;
-        }
-    }
-
-    .article7 {
-        width: 1000px;
-        height: 361px;
-        background-image: url(../img/1000x361.png);
-        margin-bottom: 10px;
-
-        p {
-            font-weight: normal;
-            width: 450px;
-            height: 150px;
-            right: 30px;
-            bottom: 40px;
-            font-size: 20px;
-
-            span {
-                font-size: 30px;
-                font-weight: bold;
+            @if $bg-image != null {
+                background-image: lib.get-img($bg-image);
+                background-size: cover;
+                background-position: center;
+            } @else {
+                background-color: #eee;
             }
+
+            @if $font-color != null {
+                color: $font-color;
+            }
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
         }
     }
 }
+
+// section {
+//     @include lib.center-block(lib.$widthFooter);
+//     padding-top: 120px;
+
+//     article {
+//         float: left;
+//         position: relative;
+
+//         p {
+//             position: absolute;
+//             color: white;
+//             font-weight: bold;
+//         }
+//     }
+
+//     .article1 {
+//         width: 700px;
+//         height: 400px;
+//         margin: 10px 10px 10px 0;
+//         background-image: url(../img/700x400.png);
+
+//         p {
+//             right: 10px;
+//             bottom: 10px;
+//             font-size: 30px;
+//         }
+//     }
+
+//     .article2 {
+//         width: 290px;
+//         height: 190px;
+//         margin-top: 10px;
+//         background-image: url(../img/290x190.png);
+
+//         p {
+//             top: 50px;
+//             left: 10px;
+//             font-size: 21px;
+//         }
+//     }
+
+//     .article3 {
+//         width: 290px;
+//         height: 95px;
+//         margin-top: 10px;
+
+//         p {
+//             right: 10px;
+//             bottom: 20px;
+//             font-size: 21px;
+//         }
+//     }
+
+//     #article4 {
+//         width: 490px;
+//         margin-right: 10px;
+        
+//         .article4 { 
+//             width: 490px;
+//             height: 240px;
+//             margin-bottom: 10px;
+//         }
+//     }
+
+//     #article4-1 {
+//         @include lib.abs-center();
+//         width: 300px;
+//         top: 160px;
+//         font-size: 14px;
+//         color: black;
+//     }
+
+//     #article4-2 {
+//         right: 20px;
+//         bottom: 30px;
+//         font-size: 30px;
+//         color: gold;
+//     }
+
+//     .article5 {
+//         width: 500px;
+//         height: 490px;
+//         background-image: url(../img/500x490.png);
+//         margin-bottom: 10px;
+//     }
+
+//     .article6 {
+//         width: 1000px;
+//         height: 371px;
+//         background-image: url(../img/1000x371.png);
+//         margin-bottom: 10px;
+
+//         p {
+//             @include lib.abs-center();
+//             font-size: 50px;
+//             white-space: nowrap;
+//             text-shadow: 2px 2px 2px black;
+//         }
+//     }
+
+//     .article7 {
+//         width: 1000px;
+//         height: 361px;
+//         background-image: url(../img/1000x361.png);
+//         margin-bottom: 10px;
+
+//         p {
+//             font-weight: normal;
+//             width: 450px;
+//             height: 150px;
+//             right: 30px;
+//             bottom: 40px;
+//             font-size: 20px;
+
+//             span {
+//                 font-size: 30px;
+//                 font-weight: bold;
+//             }
+//         }
+//     }
+// }
 
