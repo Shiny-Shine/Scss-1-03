@@ -88,11 +88,13 @@ header {
 
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 9px;
     align-content: flex-start;
 
-    @each $id, $info in $gallery-data {
-        .article#{$id} {
+    @each $class, $info in $gallery-data {
+        .#{$class} {
+            width: map.get($info, w);
+            height: map.get($info, h);
             $bg-image: map.get($info, bg);
             $font-color: map.get($info, color);
 
@@ -108,11 +110,25 @@ header {
                 color: $font-color;
             }
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+
+            p {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                margin: 0;
+            }
         }
+    }
+
+    #article4 {
+        width: 490px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 }
 
